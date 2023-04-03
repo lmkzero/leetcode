@@ -1,7 +1,5 @@
 package main
 
-import "log"
-
 // 1 <= s.length <= 1000
 func longestPalindrome(s string) string {
 	n := len(s)
@@ -19,7 +17,6 @@ func longestPalindrome(s string) string {
 		subDP[i] = true
 		dp = append(dp, subDP)
 	}
-	log.Printf("%+v", dp)
 	for i := 2; i <= n; i++ {
 		for j := 0; j < n; j++ {
 			index := i + j - 1
