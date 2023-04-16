@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     void rotate(vector<int>& nums, int k) {
         // 超时
         // int len=nums.size();
@@ -17,7 +17,7 @@ public:
         //     }
         //     nums[0]=last;
         // }
-        
+
         k = k % nums.size();
         reverse(nums.begin(), nums.begin() + nums.size() - k);
         reverse(nums.begin() + nums.size() - k, nums.end());
@@ -25,4 +25,3 @@ public:
     }
 };
 // @lc code=end
-

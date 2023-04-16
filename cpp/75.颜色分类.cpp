@@ -6,20 +6,19 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     void sortColors(vector<int>& nums) {
-        int red=0;
-        int blue=nums.size()-1;
-        for(int i=0;i<blue+1;){
-            if(nums[i]==0){
-                swap(nums[i++],nums[red++]);
-            }else if(nums[i]==2){
-                swap(nums[i],nums[blue--]);
-            }else{
+        int red = 0;
+        int blue = nums.size() - 1;
+        for (int i = 0; i < blue + 1;) {
+            if (nums[i] == 0) {
+                swap(nums[i++], nums[red++]);
+            } else if (nums[i] == 2) {
+                swap(nums[i], nums[blue--]);
+            } else {
                 i++;
             }
         }
     }
 };
 // @lc code=end
-

@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     vector<int> getRow(int rowIndex) {
         vector<int> nums(rowIndex + 1);
         nums[0] = 1;
@@ -19,4 +19,3 @@ public:
     }
 };
 // @lc code=end
-

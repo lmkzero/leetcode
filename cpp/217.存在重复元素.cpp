@@ -6,13 +6,13 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_map<int,int> map;
-        for(auto i:nums){
-            if(map.find(i)==map.end()){
-                map.emplace(i,1);
-            }else{
+        unordered_map<int, int> map;
+        for (auto i : nums) {
+            if (map.find(i) == map.end()) {
+                map.emplace(i, 1);
+            } else {
                 return true;
             }
         }
@@ -20,4 +20,3 @@ public:
     }
 };
 // @lc code=end
-

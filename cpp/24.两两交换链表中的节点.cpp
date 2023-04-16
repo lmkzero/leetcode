@@ -14,23 +14,22 @@
  * };
  */
 class Solution {
-public:
+   public:
     ListNode* swapPairs(ListNode* head) {
-        if(head==nullptr||head->next==nullptr){
+        if (head == nullptr || head->next == nullptr) {
             return head;
         }
         ListNode dummy(-1);
-        dummy.next=head;
-        ListNode* pre=&dummy;
-        ListNode* cur=pre->next;
-        ListNode* next=cur->next;
-        for(;next;pre=cur,cur=cur->next,next = cur ? cur->next: nullptr){
-            pre->next=next;
-            cur->next=next->next;
-            next->next=cur;
+        dummy.next = head;
+        ListNode* pre = &dummy;
+        ListNode* cur = pre->next;
+        ListNode* next = cur->next;
+        for (; next; pre = cur, cur = cur->next, next = cur ? cur->next : nullptr) {
+            pre->next = next;
+            cur->next = next->next;
+            next->next = cur;
         }
         return dummy.next;
     }
 };
 // @lc code=end
-

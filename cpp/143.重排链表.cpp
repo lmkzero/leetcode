@@ -16,47 +16,45 @@
  * };
  */
 class Solution {
-public:
+   public:
     void reorderList(ListNode* head) {
-        if(head==nullptr||head->next==nullptr){
-            return ;
+        if (head == nullptr || head->next == nullptr) {
+            return;
         }
         // 找到中间结点
-        ListNode* slow=head;
-        ListNode* fast=head;
-        ListNode* prev=nullptr;
-        while(fast&&fast->next){
-            prev=slow;
-            slow=slow->next;
-            fast=fast->next->next;
+        ListNode* slow = head;
+        ListNode* fast = head;
+        ListNode* prev = nullptr;
+        while (fast && fast->next) {
+            prev = slow;
+            slow = slow->next;
+            fast = fast->next->next;
         }
         // 截断链表
-        prev->next=nullptr;
+        prev->next = nullptr;
         // reverse
-        slow=reverse(slow);
+        slow = reverse(slow);
         // merge
-        ListNode* cur=head;
-        while(cur->next){
-            ListNode* tmp=cur->next;
-            cur->next=slow;
-            slow=slow->next;
-            cur->next->next=tmp;
-            cur=tmp;
+        ListNode* cur = head;
+        while (cur->next) {
+            ListNode* tmp = cur->next;
+            cur->next = slow;
+            slow = slow->next;
+            cur->next->next = tmp;
+            cur = tmp;
         }
-        cur->next=slow;
+        cur->next = slow;
     }
 
-    ListNode* reverse(ListNode *head) { 
-        if (head == nullptr || head->next == nullptr) 
-            return head; 
-        ListNode *prev = head; 
-        for (ListNode *curr = head->next, *next = curr->next; curr; prev = curr, curr = next, next = next ? next->next : nullptr) { 
-            curr->next = prev; 
-        } 
-        head->next = nullptr; 
-        return prev; 
+    ListNode* reverse(ListNode* head) {
+        if (head == nullptr || head->next == nullptr) return head;
+        ListNode* prev = head;
+        for (ListNode *curr = head->next, *next = curr->next; curr;
+             prev = curr, curr = next, next = next ? next->next : nullptr) {
+            curr->next = prev;
+        }
+        head->next = nullptr;
+        return prev;
     }
-
 };
 // @lc code=end
-

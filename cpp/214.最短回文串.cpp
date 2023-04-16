@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     // 暴力算法
     // 超时
     // string shortestPalindrome(string s) {
@@ -25,21 +25,16 @@ public:
     //     return "";
     // }
 
-
-    string shortestPalindrome(string s){
+    string shortestPalindrome(string s) {
         int n = s.size();
         int i = 0;
         for (int j = n - 1; j >= 0; j--) {
-            if (s[i] == s[j])
-                i++;
+            if (s[i] == s[j]) i++;
         }
-        if (i == n)
-            return s;
+        if (i == n) return s;
         string remain_rev = s.substr(i, n);
         reverse(remain_rev.begin(), remain_rev.end());
         return remain_rev + shortestPalindrome(s.substr(0, i)) + s.substr(i);
     }
-
 };
 // @lc code=end
-

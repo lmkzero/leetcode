@@ -6,11 +6,11 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     void moveZeroes(vector<int>& nums) {
         int temp = 0;
-        for(int i=0, j=0;i<nums.size();++i){
-            if(nums[i] != 0){
+        for (int i = 0, j = 0; i < nums.size(); ++i) {
+            if (nums[i] != 0) {
                 temp = nums[i];
                 nums[i] = nums[j];
                 nums[j] = temp;
@@ -20,4 +20,3 @@ public:
     }
 };
 // @lc code=end
-

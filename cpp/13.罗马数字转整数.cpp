@@ -6,22 +6,23 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int romanToInt(string s) {
-        int result=0;
-        for(size_t i=0;i<s.size();i++){
+        int result = 0;
+        for (size_t i = 0; i < s.size(); i++) {
             // 前字符小于后字符说明后字符对应数值不满
-            if(i>0&&map(s[i])>map(s[i-1])){
-                result+=(map(s[i]))-2*map(s[i-1]);
-            }else{
-                result+=map(s[i]);
+            if (i > 0 && map(s[i]) > map(s[i - 1])) {
+                result += (map(s[i])) - 2 * map(s[i - 1]);
+            } else {
+                result += map(s[i]);
             }
         }
         return result;
     }
-private:
-    inline int map(const char c){
-        switch(c){
+
+   private:
+    inline int map(const char c) {
+        switch (c) {
             case 'I':
                 return 1;
             case 'V':
@@ -42,4 +43,3 @@ private:
     }
 };
 // @lc code=end
-

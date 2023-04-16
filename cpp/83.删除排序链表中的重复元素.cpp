@@ -14,28 +14,25 @@
  * };
  */
 class Solution {
-public:
+   public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if(head==NULL||head->next==NULL){
+        if (head == NULL || head->next == NULL) {
             return head;
         }
-        ListNode dummy(head->val + 1); 
-        dummy.next = head; 
-        recur(&dummy, head); 
+        ListNode dummy(head->val + 1);
+        dummy.next = head;
+        recur(&dummy, head);
         return dummy.next;
-
     }
-    void recur(ListNode *prev, ListNode *cur) { 
-        if (cur == nullptr) 
-            return; 
+    void recur(ListNode* prev, ListNode* cur) {
+        if (cur == nullptr) return;
         if (prev->val == cur->val) {
-            prev->next = cur->next; 
-            delete cur; 
-            recur(prev, prev->next); 
-        } else { 
-            recur(prev->next, cur->next); 
-        } 
+            prev->next = cur->next;
+            delete cur;
+            recur(prev, prev->next);
+        } else {
+            recur(prev->next, cur->next);
+        }
     }
 };
 // @lc code=end
-

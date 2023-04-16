@@ -15,34 +15,33 @@
  * };
  */
 class Solution {
-public:
-    vector<vector<int>> levelOrderBottom(TreeNode* root) {
+   public:
+    vector<vector<int>> levelOrderBottom(TreeNode *root) {
         vector<vector<int>> result;
-        queue<TreeNode *> current,next;
-        if(root==nullptr){
+        queue<TreeNode *> current, next;
+        if (root == nullptr) {
             return result;
-        }else{
+        } else {
             current.push(root);
         }
-        while(!current.empty()){
+        while (!current.empty()) {
             vector<int> level;
-            while(!current.empty()){
-                TreeNode *node=current.front();
+            while (!current.empty()) {
+                TreeNode *node = current.front();
                 current.pop();
                 level.push_back(node->val);
-                if(node->left!=nullptr){
+                if (node->left != nullptr) {
                     next.push(node->left);
                 }
-                if(node->right!=nullptr){
+                if (node->right != nullptr) {
                     next.push(node->right);
                 }
             }
             result.push_back(level);
-            swap(next,current);
+            swap(next, current);
         }
-        reverse(result.begin(),result.end());
+        reverse(result.begin(), result.end());
         return result;
     }
 };
 // @lc code=end
-

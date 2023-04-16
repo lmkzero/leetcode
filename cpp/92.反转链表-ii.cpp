@@ -14,8 +14,8 @@
  * };
  */
 class Solution {
-public:
-    ListNode* reverseBetween(ListNode* head, int m, int n) {
+   public:
+    ListNode *reverseBetween(ListNode *head, int m, int n) {
         // [3,5]
         // 1
         // 2
@@ -41,11 +41,10 @@ public:
         dummy->next = head;
         ListNode *cur = dummy;
         ListNode *pre, *front, *last;
-        for (int i = 1; i <= m - 1; ++i) 
-            cur = cur->next;
-            pre = cur;
-            last = cur->next;
-            for (int i = m; i <= n; ++i) {
+        for (int i = 1; i <= m - 1; ++i) cur = cur->next;
+        pre = cur;
+        last = cur->next;
+        for (int i = m; i <= n; ++i) {
             cur = pre->next;
             pre->next = cur->next;
             cur->next = front;
@@ -58,4 +57,3 @@ public:
     }
 };
 // @lc code=end
-

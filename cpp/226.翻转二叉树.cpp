@@ -15,12 +15,12 @@
  * };
  */
 class Solution {
-public:
+   public:
     TreeNode* invertTree(TreeNode* root) {
-        if(root==nullptr){
+        if (root == nullptr) {
             return root;
         }
-        swap(root->left,root->right);
+        swap(root->left, root->right);
         invertTree(root->left);
         invertTree(root->right);
         return root;
@@ -40,4 +40,3 @@ public:
     // }
 };
 // @lc code=end
-

@@ -6,24 +6,24 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int coinChange(vector<int>& coins, int amount) {
         // dp
         // 自底向上
-        vector<int> dp(amount+1,amount+1);
-        dp[0]=0;
-        for(int i=0;i<dp.size();i++){
-            for(int coin:coins){
-                if(i-coin<0){
+        vector<int> dp(amount + 1, amount + 1);
+        dp[0] = 0;
+        for (int i = 0; i < dp.size(); i++) {
+            for (int coin : coins) {
+                if (i - coin < 0) {
                     continue;
-                }else{
-                    dp[i]=min(dp[i],dp[i-coin]+1);
+                } else {
+                    dp[i] = min(dp[i], dp[i - coin] + 1);
                 }
             }
         }
-        if(dp[amount]==amount+1){
+        if (dp[amount] == amount + 1) {
             return -1;
-        }else{
+        } else {
             return dp[amount];
         }
 
@@ -31,8 +31,6 @@ public:
         // return dp(coins,amount,memo);
     }
 
-
-    
     // 依然超时
     // int dp(vector<int> &coins, int amount,vector<int> &memo){
     //     if(amount==0){
@@ -85,4 +83,3 @@ public:
     // }
 };
 // @lc code=end
-

@@ -14,28 +14,27 @@
  * };
  */
 class Solution {
-public:
+   public:
     ListNode* removeElements(ListNode* head, int val) {
-        if(head==nullptr){
+        if (head == nullptr) {
             return head;
         }
-        ListNode* dummy=new ListNode(val+1);
-        dummy->next=head;
-        ListNode* pre=dummy;
-        ListNode* cur=head;
-        while(cur){
-            if(cur->val==val){
-                ListNode* tmp=cur;
-                pre->next=cur->next;
-                cur=pre->next;
+        ListNode* dummy = new ListNode(val + 1);
+        dummy->next = head;
+        ListNode* pre = dummy;
+        ListNode* cur = head;
+        while (cur) {
+            if (cur->val == val) {
+                ListNode* tmp = cur;
+                pre->next = cur->next;
+                cur = pre->next;
                 delete tmp;
-            }else{
-                pre=pre->next;
-                cur=pre->next;
+            } else {
+                pre = pre->next;
+                cur = pre->next;
             }
         }
         return dummy->next;
     }
 };
 // @lc code=end
-

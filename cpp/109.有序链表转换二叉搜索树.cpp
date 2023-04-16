@@ -23,31 +23,30 @@
  * };
  */
 class Solution {
-public:
+   public:
     TreeNode* sortedListToBST(ListNode* head) {
         // 自底向上
-        int len=0;
-        ListNode *p=head;
-        while(p){
+        int len = 0;
+        ListNode* p = head;
+        while (p) {
             len++;
-            p=p->next;
+            p = p->next;
         }
-        return sortedListToBST(head,0,len-1);
+        return sortedListToBST(head, 0, len - 1);
     }
 
-private:
-    TreeNode* sortedListToBST(ListNode* &list,int start,int end){
-        if(start>end){
+   private:
+    TreeNode* sortedListToBST(ListNode*& list, int start, int end) {
+        if (start > end) {
             return nullptr;
         }
-        int mid=start+(end-start)/2;
-        TreeNode *leftChild=sortedListToBST(list,start,mid-1);
-        TreeNode *parent=new TreeNode(list->val);
-        parent->left=leftChild;
-        list=list->next;
-        parent->right=sortedListToBST(list,mid+1,end);
+        int mid = start + (end - start) / 2;
+        TreeNode* leftChild = sortedListToBST(list, start, mid - 1);
+        TreeNode* parent = new TreeNode(list->val);
+        parent->left = leftChild;
+        list = list->next;
+        parent->right = sortedListToBST(list, mid + 1, end);
         return parent;
     }
 };
 // @lc code=end
-

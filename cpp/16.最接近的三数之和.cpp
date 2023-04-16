@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int threeSumClosest(vector<int>& nums, int target) {
         int result = 0;
         int min_gap = INT_MAX;
@@ -25,8 +25,7 @@ public:
                 }
                 if (sum < target) {
                     b++;
-                }
-                else {
+                } else {
                     c--;
                 }
             }
@@ -35,4 +34,3 @@ public:
     }
 };
 // @lc code=end
-

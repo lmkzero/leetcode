@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     string convert(string s, int numRows) {
         if (numRows == 1) {
             return s;
@@ -32,4 +32,3 @@ public:
     }
 };
 // @lc code=end
-

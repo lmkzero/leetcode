@@ -6,19 +6,19 @@
 
 // @lc code=start
 class Solution {
-private:
+   private:
     vector<int> candidates;
     vector<vector<int>> res;
     vector<int> path;
-public:
+
+   public:
     void DFS(int start, int target) {
         if (target == 0) {
             res.push_back(path);
             return;
         }
-        for (int i = start;i < candidates.size() && target - candidates[i] >= 0; i++) {
-            if (i > start && candidates[i] == candidates[i - 1])
-                continue;
+        for (int i = start; i < candidates.size() && target - candidates[i] >= 0; i++) {
+            if (i > start && candidates[i] == candidates[i - 1]) continue;
             path.push_back(candidates[i]);
             // 元素不可重复利用，使用下一个即i+1
             DFS(i + 1, target - candidates[i]);
@@ -35,4 +35,3 @@ public:
     }
 };
 // @lc code=end
-

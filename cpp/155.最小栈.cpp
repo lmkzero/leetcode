@@ -6,38 +6,33 @@
 
 // @lc code=start
 class MinStack {
-private:
+   private:
     stack<int> numStack;
     stack<int> minStack;
-public:
-    MinStack() {
 
-    }
-    
+   public:
+    MinStack() {}
+
     void push(int val) {
         if (numStack.size() == 0) {
             minStack.push(val);
-        } 
+        }
         if (val <= minStack.top()) {
             minStack.push(val);
         }
         numStack.push(val);
     }
-    
+
     void pop() {
         if (numStack.top() == minStack.top()) {
             minStack.pop();
         }
         numStack.pop();
     }
-    
-    int top() {
-        return numStack.top();
-    }
-    
-    int getMin() {
-        return minStack.top();
-    }
+
+    int top() { return numStack.top(); }
+
+    int getMin() { return minStack.top(); }
 };
 
 /**
@@ -49,4 +44,3 @@ public:
  * int param_4 = obj->getMin();
  */
 // @lc code=end
-

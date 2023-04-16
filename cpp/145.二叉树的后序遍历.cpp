@@ -15,33 +15,32 @@
  * };
  */
 class Solution {
-public:
-    vector<int> postorderTraversal(TreeNode* root) {
+   public:
+    vector<int> postorderTraversal(TreeNode *root) {
         vector<int> result;
         stack<TreeNode *> s;
-        TreeNode *p=root;
-        TreeNode *q=nullptr;
-        do{
-            while(p!=nullptr){
+        TreeNode *p = root;
+        TreeNode *q = nullptr;
+        do {
+            while (p != nullptr) {
                 s.push(p);
-                p=p->left;
+                p = p->left;
             }
-            q=nullptr;
-            while(!s.empty()){
-                p=s.top();
+            q = nullptr;
+            while (!s.empty()) {
+                p = s.top();
                 s.pop();
-                if(p->right==q){
+                if (p->right == q) {
                     result.push_back(p->val);
-                    q=p;
-                }else{
+                    q = p;
+                } else {
                     s.push(p);
-                    p=p->right;
+                    p = p->right;
                     break;
                 }
             }
-        }while(!s.empty());
+        } while (!s.empty());
         return result;
     }
 };
 // @lc code=end
-

@@ -14,14 +14,13 @@
  * };
  */
 class Solution {
-public:
+   public:
     ListNode* oddEvenList(ListNode* head) {
         ListNode* odd = head;
-        if (!head) 
-            return head;
+        if (!head) return head;
         ListNode* even = head->next;
         ListNode* cur = head->next;
-        while (even&&even->next) {
+        while (even && even->next) {
             odd->next = odd->next->next;
             even->next = even->next->next;
             odd = odd->next;
@@ -32,4 +31,3 @@ public:
     }
 };
 // @lc code=end
-

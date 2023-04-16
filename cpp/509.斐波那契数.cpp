@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     // int fib(int N) {
     //     if(N==0||N==1){
     //         return N;
@@ -45,19 +45,18 @@ public:
 
     // DP
     // 空间复杂度O(1)
-    int fib(int N){
-        if(N==0||N==1){
+    int fib(int N) {
+        if (N == 0 || N == 1) {
             return N;
         }
-        int pre=0;
-        int cur=1;
-        for(int i=2;i<=N;i++){
-            int sum=pre+cur;
-            pre=cur;
-            cur=sum;
+        int pre = 0;
+        int cur = 1;
+        for (int i = 2; i <= N; i++) {
+            int sum = pre + cur;
+            pre = cur;
+            cur = sum;
         }
         return cur;
     }
 };
 // @lc code=end
-

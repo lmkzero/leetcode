@@ -15,22 +15,22 @@
  * };
  */
 class Solution {
-public:
-    vector<int> preorderTraversal(TreeNode* root) {
+   public:
+    vector<int> preorderTraversal(TreeNode *root) {
         vector<int> result;
         stack<TreeNode *> s;
-        if(root!=nullptr){
+        if (root != nullptr) {
             s.push(root);
         }
-        while(!s.empty()){
-            TreeNode *p=s.top();
+        while (!s.empty()) {
+            TreeNode *p = s.top();
             s.pop();
             result.push_back(p->val);
             // 栈，先进后出
-            if(p->right!=nullptr){
+            if (p->right != nullptr) {
                 s.push(p->right);
             }
-            if(p->left!=nullptr){
+            if (p->left != nullptr) {
                 s.push(p->left);
             }
         }
@@ -38,4 +38,3 @@ public:
     }
 };
 // @lc code=end
-

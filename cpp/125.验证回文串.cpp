@@ -6,19 +6,19 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     bool isPalindrome(string s) {
-        transform(s.begin(),s.end(),s.begin(),::tolower);
-        auto left=s.begin();
-        auto right=prev(s.end());
-        while(left<right){
-            if(!::isalnum(*left)){
+        transform(s.begin(), s.end(), s.begin(), ::tolower);
+        auto left = s.begin();
+        auto right = prev(s.end());
+        while (left < right) {
+            if (!::isalnum(*left)) {
                 left++;
-            }else if(!::isalnum(*right)){
+            } else if (!::isalnum(*right)) {
                 right--;
-            }else if(*left!=*right){
+            } else if (*left != *right) {
                 return false;
-            }else{
+            } else {
                 left++;
                 right--;
             }
@@ -27,4 +27,3 @@ public:
     }
 };
 // @lc code=end
-

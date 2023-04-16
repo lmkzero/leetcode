@@ -6,24 +6,24 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     bool isPalindrome(int x) {
-        if(x<0){
+        if (x < 0) {
             return false;
         }
         vector<int> nums;
-        int y=x;
-        while(y!=0){
-            int pop=y%10;
+        int y = x;
+        while (y != 0) {
+            int pop = y % 10;
             nums.push_back(pop);
-            y=y/10;
+            y = y / 10;
         }
-        for(int i=nums.size()-1;i>=0;i--){
-            int pop=x%10;
-            if(nums[i]!=pop){
+        for (int i = nums.size() - 1; i >= 0; i--) {
+            int pop = x % 10;
+            if (nums[i] != pop) {
                 return false;
             }
-            x=x/10;
+            x = x / 10;
         }
         return true;
     }
@@ -51,4 +51,3 @@ public:
     // }
 };
 // @lc code=end
-

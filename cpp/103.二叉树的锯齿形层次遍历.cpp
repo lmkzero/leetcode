@@ -15,39 +15,38 @@
  * };
  */
 class Solution {
-public:
-    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+   public:
+    vector<vector<int>> zigzagLevelOrder(TreeNode *root) {
         // 使用一个bool值进行记录
         vector<vector<int>> result;
-        queue<TreeNode *> current,next;
-        bool left_to_right=true;
-        if(root==nullptr){
+        queue<TreeNode *> current, next;
+        bool left_to_right = true;
+        if (root == nullptr) {
             return result;
-        }else{
+        } else {
             current.push(root);
         }
-        while(!current.empty()){
+        while (!current.empty()) {
             vector<int> level;
-            while(!current.empty()){
-                TreeNode *node=current.front();
+            while (!current.empty()) {
+                TreeNode *node = current.front();
                 current.pop();
                 level.push_back(node->val);
-                if(node->left!=nullptr){
+                if (node->left != nullptr) {
                     next.push(node->left);
                 }
-                if(node->right!=nullptr){
+                if (node->right != nullptr) {
                     next.push(node->right);
                 }
             }
-            if(!left_to_right){
-                reverse(level.begin(),level.end());
+            if (!left_to_right) {
+                reverse(level.begin(), level.end());
             }
             result.push_back(level);
-            left_to_right=!left_to_right;
-            swap(next,current);
+            left_to_right = !left_to_right;
+            swap(next, current);
         }
         return result;
     }
 };
 // @lc code=end
-

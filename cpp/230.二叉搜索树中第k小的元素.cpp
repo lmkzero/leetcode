@@ -17,28 +17,28 @@
  * };
  */
 class Solution {
-private:
+   private:
     int count;
     int ans;
 
-    void inOrder(TreeNode* root,int k){
-        if(root==nullptr){
+    void inOrder(TreeNode* root, int k) {
+        if (root == nullptr) {
             return;
         }
-        inOrder(root->left,k);
+        inOrder(root->left, k);
         count++;
-        if(count==k){
-            ans=root->val;
-        }else{
-            inOrder(root->right,k);
+        if (count == k) {
+            ans = root->val;
+        } else {
+            inOrder(root->right, k);
         }
     }
-public:
+
+   public:
     int kthSmallest(TreeNode* root, int k) {
-        count=0;
-        inOrder(root,k);
+        count = 0;
+        inOrder(root, k);
         return ans;
     }
 };
 // @lc code=end
-

@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int titleToNumber(string columnTitle) {
         int res = 0;
         reverse(columnTitle.begin(), columnTitle.end());
@@ -17,4 +17,3 @@ public:
     }
 };
 // @lc code=end
-

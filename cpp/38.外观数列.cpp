@@ -6,10 +6,9 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     string countAndSay(int n) {
-        if (n <= 0)
-            return "";
+        if (n <= 0) return "";
         string res = "1";
         while (--n) {
             string cur = "";
@@ -27,4 +26,3 @@ public:
     }
 };
 // @lc code=end
-

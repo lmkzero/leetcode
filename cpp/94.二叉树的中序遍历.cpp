@@ -15,24 +15,23 @@
  * };
  */
 class Solution {
-public:
-    vector<int> inorderTraversal(TreeNode* root) {
+   public:
+    vector<int> inorderTraversal(TreeNode *root) {
         vector<int> result;
         stack<TreeNode *> s;
-        TreeNode *p=root;
-        while(!s.empty()||p!=nullptr){
-            if(p!=nullptr){
+        TreeNode *p = root;
+        while (!s.empty() || p != nullptr) {
+            if (p != nullptr) {
                 s.push(p);
-                p=p->left;
-            }else{
-                p=s.top();
+                p = p->left;
+            } else {
+                p = s.top();
                 s.pop();
                 result.push_back(p->val);
-                p=p->right;
+                p = p->right;
             }
         }
         return result;
     }
 };
 // @lc code=end
-

@@ -24,26 +24,24 @@ public:
 */
 
 class Solution {
-public:
+   public:
     Node* connect(Node* root) {
-        if(!root) 
-            return NULL;
-        queue<Node* >q;
+        if (!root) return NULL;
+        queue<Node*> q;
         q.push(root);
-        while(!q.empty()){
+        while (!q.empty()) {
             Node* r = NULL;
             int len = q.size();
-            for(int i = 0;i<len;i++){
-                Node * t = q.front();
+            for (int i = 0; i < len; i++) {
+                Node* t = q.front();
                 q.pop();
-                if(t->left) q.push(t->left);
-                if(t->right) q.push(t->right);
-                if(r) r->next = t;
+                if (t->left) q.push(t->left);
+                if (t->right) q.push(t->right);
+                if (r) r->next = t;
                 r = t;
-            }  
+            }
         }
         return root;
     }
 };
 // @lc code=end
-

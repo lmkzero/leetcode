@@ -14,18 +14,18 @@
  * };
  */
 class Solution {
-public:
-    ListNode *detectCycle(ListNode *head) {
-        ListNode* slow1=head;
-        ListNode* fast=head;
-        while(fast&&fast->next){
-            slow1=slow1->next;
-            fast=fast->next->next;
-            if(slow1==fast){
-                ListNode* slow2=head;
-                while(slow1!=slow2){
-                    slow1=slow1->next;
-                    slow2=slow2->next;
+   public:
+    ListNode* detectCycle(ListNode* head) {
+        ListNode* slow1 = head;
+        ListNode* fast = head;
+        while (fast && fast->next) {
+            slow1 = slow1->next;
+            fast = fast->next->next;
+            if (slow1 == fast) {
+                ListNode* slow2 = head;
+                while (slow1 != slow2) {
+                    slow1 = slow1->next;
+                    slow2 = slow2->next;
                 }
                 return slow2;
             }
@@ -34,4 +34,3 @@ public:
     }
 };
 // @lc code=end
-

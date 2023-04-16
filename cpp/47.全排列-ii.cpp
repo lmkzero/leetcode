@@ -6,15 +6,15 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     vector<vector<int>> result;
-    void func(vector<int> &nums, vector<int> &current, vector<bool>&nums1){
+    void func(vector<int> &nums, vector<int> &current, vector<bool> &nums1) {
         if (current.size() == nums1.size())
             result.push_back(current);
-        else{
-            for (int i = 0; i < nums.size(); i++){
-                if (nums1[i]){
-                    if (i > 0 && nums[i] == nums[i - 1] && nums1[i - 1])//除重！！
+        else {
+            for (int i = 0; i < nums.size(); i++) {
+                if (nums1[i]) {
+                    if (i > 0 && nums[i] == nums[i - 1] && nums1[i - 1])  // 除重！！
                         continue;
                     current.push_back(nums[i]);
                     nums1[i] = false;
@@ -25,12 +25,12 @@ public:
             }
         }
     }
-    vector<vector<int>> permuteUnique(vector<int>& nums) {
+    vector<vector<int>> permuteUnique(vector<int> &nums) {
         if (nums.size() == 0)
             return {};
         else if (nums.size() == 1)
-            return { {nums[0]} };
-        else{
+            return {{nums[0]}};
+        else {
             vector<bool> nums1(nums.size(), true);
             vector<int> current;
             sort(nums.begin(), nums.end());
@@ -40,4 +40,3 @@ public:
     }
 };
 // @lc code=end
-

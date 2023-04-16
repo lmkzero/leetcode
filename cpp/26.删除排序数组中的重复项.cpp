@@ -6,25 +6,24 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int removeDuplicates(vector<int>& nums) {
-        int length=nums.size();
-        if(length<=0){
+        int length = nums.size();
+        if (length <= 0) {
             return 0;
         }
-        int len=0;
-        int index=len+1;
-        while(index<length){
-            if(nums[index]==nums[len]){
+        int len = 0;
+        int index = len + 1;
+        while (index < length) {
+            if (nums[index] == nums[len]) {
                 index++;
-            }else{
+            } else {
                 len++;
-                nums[len]=nums[index];
+                nums[len] = nums[index];
                 index++;
             }
         }
-        return len+1;
+        return len + 1;
     }
 };
 // @lc code=end
-

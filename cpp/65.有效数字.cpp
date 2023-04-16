@@ -6,19 +6,18 @@
 
 // @lc code=start
 class Solution {
-public:
-    bool isNumber(string s) {
-        return isNumber(s.c_str());
-    }
-private:
-    bool isNumber(char const *s){
+   public:
+    bool isNumber(string s) { return isNumber(s.c_str()); }
+
+   private:
+    bool isNumber(char const *s) {
         char *endptr;
-        strtod(s,&endptr);
-        if(endptr==s){
+        strtod(s, &endptr);
+        if (endptr == s) {
             return false;
         }
-        for(;*endptr;endptr++){
-            if(!isspace(*endptr)){
+        for (; *endptr; endptr++) {
+            if (!isspace(*endptr)) {
                 return false;
             }
         }
@@ -26,4 +25,3 @@ private:
     }
 };
 // @lc code=end
-

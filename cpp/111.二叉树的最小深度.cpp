@@ -15,18 +15,15 @@
  * };
  */
 class Solution {
-public:
-    int minDepth(TreeNode* root) {
-        return minDepth(root,false);
-    }
+   public:
+    int minDepth(TreeNode* root) { return minDepth(root, false); }
 
-private:
-    int minDepth(TreeNode *root,bool hasbrother){
-        if(!root){
-            return hasbrother?INT_MAX:0;
+   private:
+    int minDepth(TreeNode* root, bool hasbrother) {
+        if (!root) {
+            return hasbrother ? INT_MAX : 0;
         }
-        return 1+min(minDepth(root->left,root->right!=NULL),minDepth(root->right,root->left!=NULL));
+        return 1 + min(minDepth(root->left, root->right != NULL), minDepth(root->right, root->left != NULL));
     }
 };
 // @lc code=end
-

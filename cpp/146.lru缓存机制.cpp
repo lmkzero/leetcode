@@ -6,18 +6,16 @@
 
 // @lc code=start
 class LRUCache {
-private:
+   private:
     list<pair<int, int>> l;
     unordered_map<int, list<pair<int, int>>::iterator> mp;
     int cap;
-public:
-    LRUCache(int capacity) {
-        cap = capacity;
-    }
-    
+
+   public:
+    LRUCache(int capacity) { cap = capacity; }
+
     int get(int key) {
-        if(mp.find(key) != mp.end())
-        {
+        if (mp.find(key) != mp.end()) {
             int res = (*mp[key]).second;
             l.erase(mp[key]);
             l.push_front(make_pair(key, res));
@@ -26,18 +24,14 @@ public:
         }
         return -1;
     }
-    
+
     void put(int key, int value) {
-        if(mp.find(key) != mp.end())
-        {
+        if (mp.find(key) != mp.end()) {
             l.erase(mp[key]);
             l.push_front(make_pair(key, value));
             mp[key] = l.begin();
-        }
-        else
-        {
-            if(l.size() == cap)
-            {
+        } else {
+            if (l.size() == cap) {
                 mp.erase(l.back().first);
                 l.pop_back();
             }
@@ -54,4 +48,3 @@ public:
  * obj->put(key,value);
  */
 // @lc code=end
-

@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     void gameOfLife(vector<vector<int>>& board) {
         int m = board.size();
         int n = board[0].size();
@@ -17,12 +17,11 @@ public:
         // encode
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                int live = 0; // number of live cells
+                int live = 0;  // number of live cells
                 for (int k = 0; k < 8; ++k) {
                     int x = i + dx[k];
                     int y = j + dy[k];
-                    if (x > -1 && x < m && y > -1 && y < n &&
-                            (board[x][y] == 1 || board[x][y] == 2)) {
+                    if (x > -1 && x < m && y > -1 && y < n && (board[x][y] == 1 || board[x][y] == 2)) {
                         ++live;
                     }
                 }
@@ -34,7 +33,7 @@ public:
             }
         }
 
-        //decode
+        // decode
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
                 board[i][j] %= 2;
@@ -43,4 +42,3 @@ public:
     }
 };
 // @lc code=end
-

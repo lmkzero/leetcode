@@ -6,19 +6,19 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        unordered_map<int,int> map;
-        int len=nums.size();
-        for(int i=0;i<len;i++){
-            if(map.find(nums[i])==map.end()){
-                map.emplace(nums[i],i);
-            }else{
-                int gap=i-map.at(nums[i]);
-                if(abs(gap)<=k){
+        unordered_map<int, int> map;
+        int len = nums.size();
+        for (int i = 0; i < len; i++) {
+            if (map.find(nums[i]) == map.end()) {
+                map.emplace(nums[i], i);
+            } else {
+                int gap = i - map.at(nums[i]);
+                if (abs(gap) <= k) {
                     return true;
-                }else{
-                    map.at(nums[i])=i;
+                } else {
+                    map.at(nums[i]) = i;
                 }
             }
         }
@@ -26,4 +26,3 @@ public:
     }
 };
 // @lc code=end
-

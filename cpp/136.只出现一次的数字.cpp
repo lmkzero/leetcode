@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int singleNumber(vector<int>& nums) {
         int single = 0;
         for (int i = 0; i < nums.size(); i++) {
@@ -16,4 +16,3 @@ public:
     }
 };
 // @lc code=end
-

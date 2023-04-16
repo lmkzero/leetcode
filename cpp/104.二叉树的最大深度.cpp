@@ -15,13 +15,12 @@
  * };
  */
 class Solution {
-public:
+   public:
     int maxDepth(TreeNode* root) {
-        if(root==nullptr){
+        if (root == nullptr) {
             return 0;
         }
-        return max(maxDepth(root->left),maxDepth(root->right))+1;
+        return max(maxDepth(root->left), maxDepth(root->right)) + 1;
     }
 };
 // @lc code=end
-

@@ -14,26 +14,23 @@
  * };
  */
 class Solution {
-public:
+   public:
     ListNode* reverseList(ListNode* head) {
-        if(head==NULL||head->next==NULL){
+        if (head == NULL || head->next == NULL) {
             return head;
         }
-        ListNode* tail=NULL;
-        ListNode* p=head;
-        ListNode* q=p->next;
-        while (q!=NULL)
-        {
-            ListNode* old=q->next;
-            p->next=tail;
-            q->next=p;
-            tail=p;
-            p=q;
-            q=old;
+        ListNode* tail = NULL;
+        ListNode* p = head;
+        ListNode* q = p->next;
+        while (q != NULL) {
+            ListNode* old = q->next;
+            p->next = tail;
+            q->next = p;
+            tail = p;
+            p = q;
+            q = old;
         }
         return p;
-        
     }
 };
 // @lc code=end
-

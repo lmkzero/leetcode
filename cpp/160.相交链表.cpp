@@ -14,7 +14,7 @@
  * };
  */
 class Solution {
-public:
+   public:
     int getLength(ListNode *head) {
         int num = 0;
         for (; head; head = head->next) {
@@ -54,4 +54,3 @@ public:
     }
 };
 // @lc code=end
-

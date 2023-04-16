@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     string convertToTitle(int columnNumber) {
         // 转进制
         string ans;
@@ -20,4 +20,3 @@ public:
     }
 };
 // @lc code=end
-

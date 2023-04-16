@@ -6,20 +6,19 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int reverse(int x) {
         bool is_negative = false;
-        if (x<0) {
+        if (x < 0) {
             is_negative = true;
         }
         string num = to_string(abs(x));
         std::reverse(num.begin(), num.end());
         cout << num << endl;
         long result = is_negative ? -stol(num) : stol(num);
-        if (result>INT_MAX || result<INT_MIN) {
+        if (result > INT_MAX || result < INT_MIN) {
             return 0;
-        }
-        else {
+        } else {
             return int(result);
         }
 
@@ -36,4 +35,3 @@ public:
     }
 };
 // @lc code=end
-

@@ -6,7 +6,7 @@
 
 // @lc code=start
 class Solution {
-public:
+   public:
     int mySqrt(int x) {
         // i*i溢出
         /* int res=0;
@@ -20,14 +20,12 @@ public:
             }
         }
         return res; */
-        if(x == 1)
-            return 1;
+        if (x == 1) return 1;
         int min = 0;
         int max = x;
-        while(max-min>1)
-        {
-            int m = (max+min)/2;
-            if(x/m<m)
+        while (max - min > 1) {
+            int m = (max + min) / 2;
+            if (x / m < m)
                 max = m;
             else
                 min = m;
@@ -36,4 +34,3 @@ public:
     }
 };
 // @lc code=end
-

@@ -24,25 +24,25 @@ public:
 */
 
 class Solution {
-public:
+   public:
     Node* connect(Node* root) {
-        connect(root,NULL);
+        connect(root, NULL);
         return root;
     }
-private:
-    void connect(Node *root,Node *sibling){
-        if(root==nullptr){
+
+   private:
+    void connect(Node* root, Node* sibling) {
+        if (root == nullptr) {
             return;
-        }else{
-            root->next=sibling;
+        } else {
+            root->next = sibling;
         }
-        connect(root->left,root->right);
-        if(sibling){
-            connect(root->right,sibling->left);
-        }else{
-            connect(root->right,nullptr);
+        connect(root->left, root->right);
+        if (sibling) {
+            connect(root->right, sibling->left);
+        } else {
+            connect(root->right, nullptr);
         }
     }
 };
 // @lc code=end
-
