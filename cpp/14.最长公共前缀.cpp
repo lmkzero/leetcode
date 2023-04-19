@@ -4,6 +4,10 @@
  * [14] 最长公共前缀
  */
 
+#include <iostream>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

@@ -4,6 +4,13 @@
  * [18] 四数之和
  */
 
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

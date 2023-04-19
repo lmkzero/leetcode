@@ -4,6 +4,12 @@
  * [5] 最长回文子串
  */
 
+#include <iostream>
+#include <algorithm>
+
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

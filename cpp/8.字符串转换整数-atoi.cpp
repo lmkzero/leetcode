@@ -4,6 +4,10 @@
  * [8] 字符串转换整数 (atoi)
  */
 
+#include <iostream>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

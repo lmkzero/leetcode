@@ -3,6 +3,10 @@
  *
  * [26] 删除排序数组中的重复项
  */
+#include <iostream>
+#include <vector>
+
+using namespace std;
 
 // @lc code=start
 class Solution {

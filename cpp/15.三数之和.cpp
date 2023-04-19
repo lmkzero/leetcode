@@ -4,6 +4,12 @@
  * [15] 三数之和
  */
 
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

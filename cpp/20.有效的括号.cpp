@@ -4,6 +4,11 @@
  * [20] 有效的括号
  */
 
+#include <iostream>
+#include <stack>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

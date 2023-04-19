@@ -4,6 +4,12 @@
  * [30] 串联所有单词的子串
  */
 
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

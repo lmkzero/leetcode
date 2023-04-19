@@ -4,6 +4,17 @@
  * [19] 删除链表的倒数第N个节点
  */
 
+
+#include <iostream>
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.

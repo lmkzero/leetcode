@@ -4,6 +4,16 @@
  * [25] K 个一组翻转链表
  */
 
+#include <iostream>
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.

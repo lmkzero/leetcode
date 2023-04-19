@@ -4,6 +4,16 @@
  * [24] 两两交换链表中的节点
  */
 
+#include <iostream>
+
+using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+};
+
 // @lc code=start
 /**
  * Definition for singly-linked list.

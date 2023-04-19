@@ -4,6 +4,10 @@
  * [29] 两数相除
  */
 
+#include <iostream>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

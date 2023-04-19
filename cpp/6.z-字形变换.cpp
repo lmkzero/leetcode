@@ -4,6 +4,11 @@
  * [6] Z 字形变换
  */
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

@@ -4,6 +4,12 @@
  * [9] 回文数
  */
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+
 // @lc code=start
 class Solution {
    public:

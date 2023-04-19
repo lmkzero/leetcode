@@ -4,6 +4,11 @@
  * [7] 整数反转
  */
 
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

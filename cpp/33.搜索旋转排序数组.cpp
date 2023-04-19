@@ -4,6 +4,11 @@
  * [33] 搜索旋转排序数组
  */
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

@@ -4,6 +4,13 @@
  * [31] 下一个排列
  */
 
+
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
