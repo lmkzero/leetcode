@@ -4,6 +4,11 @@
  * [37] 解数独
  */
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
