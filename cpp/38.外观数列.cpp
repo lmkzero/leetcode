@@ -4,6 +4,11 @@
  * [38] 外观数列
  */
 
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
