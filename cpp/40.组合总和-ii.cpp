@@ -4,6 +4,11 @@
  * [40] 组合总和 II
  */
 
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    private:
