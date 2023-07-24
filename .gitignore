@@ -34,3 +34,6 @@
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# vscode
+leetcode.code-workspace
