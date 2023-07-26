@@ -6,12 +6,31 @@ func Test_hasCycle(t *testing.T) {
 	type args struct {
 		head *ListNode
 	}
+	head1 := makeLinkedList([]int{1, 2, 3})
+	head2, _ := makeCycleLinkedList(
+		[]int{3, 2, 0, -4},
+		1,
+	)
 	tests := []struct {
 		name string
 		args args
 		want bool
 	}{
-		// TODO: Add test cases.
+		{
+			name: "1",
+			args: args{nil},
+			want: false,
+		},
+		{
+			name: "2",
+			args: args{head1},
+			want: false,
+		},
+		{
+			name: "3",
+			args: args{head2},
+			want: true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
