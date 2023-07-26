@@ -13,6 +13,9 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+#include "define.h"
+
 class Solution {
    public:
     bool hasCycle(ListNode* head) {
