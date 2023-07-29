@@ -13,6 +13,10 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+#include <iostream>
+#include "define.h"
+
 class Solution {
    public:
     ListNode* reverseList(ListNode* head) {
