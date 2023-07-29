@@ -13,30 +13,12 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+#include "define.h"
+
 class Solution {
    public:
     ListNode *reverseBetween(ListNode *head, int m, int n) {
-        // [3,5]
-        // 1
-        // 2
-        // if (head == NULL || head->next == NULL) {
-        //     return head;
-        // }
-        // ListNode* pre = head;
-        // for (int i = 1; i<m-1; i++) {
-        //     pre = pre->next;
-        // }
-        // ListNode* cur = pre->next;
-        // for (int j = m + 1; j <= n; j++) {
-        //     ListNode* n = cur->next;
-        //     ListNode* nn = n->next;
-        //     ListNode* pn = pre->next;
-        //     //exchange
-        //     pre->next = n;
-        //     n->next = pn;
-        //     cur->next = nn;
-        // }
-        // return head;
         ListNode *dummy = new ListNode(-1);
         dummy->next = head;
         ListNode *cur = dummy;
