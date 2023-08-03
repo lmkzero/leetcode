@@ -5,17 +5,29 @@
  */
 
 // @lc code=start
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
 class Solution {
    public:
     void moveZeroes(vector<int>& nums) {
-        int temp = 0;
-        for (int i = 0, j = 0; i < nums.size(); ++i) {
-            if (nums[i] != 0) {
-                temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                j++;
+        if (nums.size() <= 1) {
+            return;
+        }
+        int slow = 0;
+        int fast = 0;
+        for (; fast < nums.size();) {
+            if (nums[fast] != 0) {
+                nums[slow] = nums[fast];
+                slow++;
             }
+            fast++;
+        }
+        for (; slow < nums.size(); slow++) {
+            nums[slow] = 0;
         }
     }
 };
