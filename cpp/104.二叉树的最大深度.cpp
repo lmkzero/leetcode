@@ -14,6 +14,12 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+#include "define.h"
+#include <iostream>
+
+using namespace std;
+
 class Solution {
    public:
     int maxDepth(TreeNode* root) {

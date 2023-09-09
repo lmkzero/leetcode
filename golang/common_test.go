@@ -1,6 +1,7 @@
 package main
 
 import (
+	"math"
 	"testing"
 )
 
@@ -26,6 +27,31 @@ func makeLinkedList(vals []int) *ListNode {
 		return nil
 	}
 	return nodes[0]
+}
+
+func makeBinaryTree(vals []interface{}) []*TreeNode {
+	if len(vals) == 0 {
+		return nil
+	}
+	tree := make([]*TreeNode, 0, len(vals))
+	for _, val := range vals {
+		if intVal, ok := val.(int); ok {
+			tree = append(tree, &TreeNode{Val: intVal})
+		} else {
+			tree = append(tree, &TreeNode{Val: math.MinInt})
+		}
+	}
+	for idx, node := range tree {
+		left := idx*2 + 1
+		right := idx*2 + 2
+		if left < len(tree) {
+			node.Left = tree[left]
+		}
+		if right < len(tree) {
+			node.Right = tree[right]
+		}
+	}
+	return tree
 }
 
 func Test_min(t *testing.T) {
