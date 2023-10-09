@@ -14,6 +14,12 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+#include <iostream>
+#include "define.h"
+
+using namespace std;
+
 class Solution {
    public:
     int maxPathSum(TreeNode* root) {

@@ -42,12 +42,15 @@ func makeBinaryTree(vals []interface{}) []*TreeNode {
 		}
 	}
 	for idx, node := range tree {
+		if node.Val == math.MinInt {
+			continue
+		}
 		left := idx*2 + 1
 		right := idx*2 + 2
-		if left < len(tree) {
+		if left < len(tree) && tree[left].Val != math.MinInt {
 			node.Left = tree[left]
 		}
-		if right < len(tree) {
+		if right < len(tree) && tree[right].Val != math.MinInt {
 			node.Right = tree[right]
 		}
 	}
