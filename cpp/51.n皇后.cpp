@@ -4,6 +4,11 @@
  * [51] N皇后
  */
 
+#include <vector>
+#include <string>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:

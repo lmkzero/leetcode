@@ -112,6 +112,30 @@ func intSliceToString(nums []int) string {
 	return strings.Join(ss, "-")
 }
 
+func isStringSliceEqual(ss1, ss2 []string) bool {
+	if len(ss1) != len(ss2) {
+		return false
+	}
+	for i := 0; i < len(ss1); i++ {
+		if ss1[i] != ss2[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func isStringMatrixEqual(matrix1, matrix2 [][]string) bool {
+	if len(matrix1) != len(matrix2) {
+		return false
+	}
+	for i, m1 := range matrix1 {
+		if !isStringSliceEqual(m1, matrix2[i]) {
+			return false
+		}
+	}
+	return true
+}
+
 func Test_min(t *testing.T) {
 	type args struct {
 		x int
