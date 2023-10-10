@@ -2,6 +2,8 @@ package main
 
 import (
 	"math"
+	"strconv"
+	"strings"
 	"testing"
 )
 
@@ -55,6 +57,59 @@ func makeBinaryTree(vals []interface{}) []*TreeNode {
 		}
 	}
 	return tree
+}
+
+func isIntSliceEqual(nums1, nums2 []int) bool {
+	if len(nums1) != len(nums2) {
+		return false
+	}
+	for i := 0; i < len(nums1); i++ {
+		if nums1[i] != nums2[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func isIntMatrixEqual(matrix1, matrix2 [][]int) bool {
+	if len(matrix1) != len(matrix2) {
+		return false
+	}
+	for i, m1 := range matrix1 {
+		if !isIntSliceEqual(m1, matrix2[i]) {
+			return false
+		}
+	}
+	return true
+}
+
+// matrix1, matrix2中的slice不重复
+func isIntMatrixEqualWithoutOrder(matrix1, matrix2 [][]int) bool {
+	if len(matrix1) != len(matrix2) {
+		return false
+	}
+	m1, m2 := make(map[string]struct{}, len(matrix1)), make(map[string]struct{}, len(matrix2))
+	for i := 0; i < len(matrix1); i++ {
+		m1[intSliceToString(matrix1[i])] = struct{}{}
+		m2[intSliceToString(matrix2[i])] = struct{}{}
+	}
+	for k := range m1 {
+		if _, ok := m2[k]; !ok {
+			return false
+		}
+	}
+	return true
+}
+
+func intSliceToString(nums []int) string {
+	if len(nums) == 0 {
+		return ""
+	}
+	ss := make([]string, 0, len(nums))
+	for _, num := range nums {
+		ss = append(ss, strconv.FormatInt(int64(num), 10))
+	}
+	return strings.Join(ss, "-")
 }
 
 func Test_min(t *testing.T) {

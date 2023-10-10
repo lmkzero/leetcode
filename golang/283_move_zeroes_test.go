@@ -31,21 +31,9 @@ func Test_moveZeroes(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			moveZeroes(tt.args.nums)
-			if !isIntSliceSame(tt.args.nums, tt.want) {
+			if !isIntSliceEqual(tt.args.nums, tt.want) {
 				t.Errorf("moveZeroes() = %v, want %v", tt.args.nums, tt.want)
 			}
 		})
 	}
-}
-
-func isIntSliceSame(nums1, nums2 []int) bool {
-	if len(nums1) != len(nums2) {
-		return false
-	}
-	for i := 0; i < len(nums1); i++ {
-		if nums1[i] != nums2[i] {
-			return false
-		}
-	}
-	return true
 }
