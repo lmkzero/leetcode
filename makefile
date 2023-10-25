@@ -1,2 +1,2 @@
 all:
-	cd golang && go test -v
+	cd golang && go test

@@ -4,6 +4,11 @@
  * [111] 二叉树的最小深度
  */
 
+#include <algorithm>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
