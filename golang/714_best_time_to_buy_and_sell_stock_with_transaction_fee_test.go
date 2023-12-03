@@ -1,0 +1,39 @@
+package main
+
+import "testing"
+
+func Test_maxProfitWithFee(t *testing.T) {
+	type args struct {
+		prices []int
+		fee    int
+	}
+	tests := []struct {
+		name string
+		args args
+		want int
+	}{
+		{
+			name: "1",
+			args: args{
+				prices: []int{1, 3, 2, 8, 4, 9},
+				fee:    2,
+			},
+			want: 8,
+		},
+		{
+			name: "2",
+			args: args{
+				prices: []int{1, 3, 7, 5, 10, 3},
+				fee:    3,
+			},
+			want: 6,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := maxProfitWithFee(tt.args.prices, tt.args.fee); got != tt.want {
+				t.Errorf("maxProfitWithFee() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
