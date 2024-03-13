@@ -4,6 +4,10 @@
  * [189] 旋转数组
  */
 
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
