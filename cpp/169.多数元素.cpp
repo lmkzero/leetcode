@@ -4,6 +4,12 @@
  * [169] 多数元素
  */
 
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
