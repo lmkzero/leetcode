@@ -1,3 +1,3 @@
-module github.com/lmkzero/LeetCode
+module github.com/lmkzero/LeetCode/golang
 
-go 1.19
+go 1.20
