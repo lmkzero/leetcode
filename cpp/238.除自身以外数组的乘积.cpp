@@ -4,6 +4,10 @@
  * [238] 除自身以外数组的乘积
  */
 
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
