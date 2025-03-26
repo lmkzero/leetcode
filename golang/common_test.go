@@ -2,6 +2,7 @@ package main
 
 import (
 	"math"
+	"sort"
 	"strconv"
 	"strings"
 	"testing"
@@ -130,6 +131,31 @@ func isStringMatrixEqual(matrix1, matrix2 [][]string) bool {
 	}
 	for i, m1 := range matrix1 {
 		if !isStringSliceEqual(m1, matrix2[i]) {
+			return false
+		}
+	}
+	return true
+}
+
+// matrix1, matrix2中的slice不重复
+func isStringMatrixEqualWithoutOrder(matrix1, matrix2 [][]string) bool {
+	if len(matrix1) != len(matrix2) {
+		return false
+	}
+	m1, m2 := make(map[string]struct{}, len(matrix1)), make(map[string]struct{}, len(matrix2))
+	for i := 0; i < len(matrix1); i++ {
+		s1, s2 := matrix1[i], matrix2[i]
+		sort.SliceStable(s1, func(i, j int) bool {
+			return s1[i] < s1[j]
+		})
+		sort.SliceStable(s2, func(i, j int) bool {
+			return s2[i] < s2[j]
+		})
+		m1[strings.Join(s1, "-")] = struct{}{}
+		m2[strings.Join(s2, "-")] = struct{}{}
+	}
+	for k := range m1 {
+		if _, ok := m2[k]; !ok {
 			return false
 		}
 	}
