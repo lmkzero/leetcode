@@ -7,27 +7,6 @@
 // @lc code=start
 class Solution {
    public:
-    // 双层遍历(有问题)
-    //  int trap(vector<int>& height) {
-    //      if(height.size()<2){
-    //          return 0;
-    //      }
-    //      int left,right;
-    //      int water=0;
-    //      for(left=1,right=2;left<height.size()-2;left++){
-    //          if(height[left]>height[right]){
-    //              right++;
-    //          }else{
-    //              water=height[left]*(right-left-1)+water;
-    //              for(int i=left+1;i<right;i++){
-    //                  water=water-height[i];
-    //              }
-    //              left=right;
-    //          }
-    //      }
-    //      return water;
-    //  }
-
     // 对于每个柱子找到其左右最高的的柱子
     // int trap(vector<int>& height){
     //     const int n=height.size();
