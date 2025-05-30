@@ -4,6 +4,11 @@
  * [53] 最大子序和
  */
 
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
