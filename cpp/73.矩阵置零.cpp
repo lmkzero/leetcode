@@ -4,6 +4,10 @@
  * [73] 矩阵置零
  */
 
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
