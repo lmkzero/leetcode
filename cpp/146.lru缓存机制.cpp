@@ -4,6 +4,10 @@
  * [146] LRU缓存机制
  */
 
+#include <list>
+
+using namespace std;
+
 // @lc code=start
 class LRUCache {
    private:

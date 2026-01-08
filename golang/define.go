@@ -6,6 +6,12 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// DoublyListNode Definition for doubly-linked list.
+type DoublyListNode struct {
+	key, val   int
+	next, prev *DoublyListNode
+}
+
 // TreeNode Definition for a binary tree node.
 type TreeNode struct {
 	Val   int
