@@ -1,11 +1,13 @@
 package main
 
 func reverseList(head *ListNode) *ListNode {
-	if head == nil || head.Next == nil {
-		return head
+	dummy := &ListNode{}
+	cur := head
+	for cur != nil {
+		next := cur.Next
+		cur.Next = dummy.Next
+		dummy.Next = cur
+		cur = next
 	}
-	last := reverseList(head.Next)
-	head.Next.Next = head
-	head.Next = nil
-	return last
+	return dummy.Next
 }

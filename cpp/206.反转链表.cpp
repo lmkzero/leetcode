@@ -14,7 +14,7 @@
  * };
  */
 
-#include <iostream>
+#include <stdlib.h>
 #include "define.h"
 
 class Solution {
