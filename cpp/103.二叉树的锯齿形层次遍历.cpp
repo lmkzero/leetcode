@@ -14,6 +14,14 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+#include <stdlib.h>
+#include <queue>
+#include <vector>
+#include "define.h"
+
+using namespace std;
+
 class Solution {
    public:
     vector<vector<int>> zigzagLevelOrder(TreeNode *root) {
