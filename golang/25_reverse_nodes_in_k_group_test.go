@@ -1,31 +1,25 @@
 package main
 
 import (
-	"reflect"
 	"testing"
 )
 
-func Test_myReverse(t *testing.T) {
-	type args struct {
-		head *ListNode
-		tail *ListNode
-	}
+func Test_reverseKGroup(t *testing.T) {
 	tests := []struct {
-		name  string
-		args  args
-		want  *ListNode
-		want1 *ListNode
+		name string // description of this test case
+		// Named input parameters for target function.
+		head *ListNode
+		k    int
+		want *ListNode
 	}{
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, got1 := myReverse(tt.args.head, tt.args.tail)
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("myReverse() got = %v, want %v", got, tt.want)
-			}
-			if !reflect.DeepEqual(got1, tt.want1) {
-				t.Errorf("myReverse() got1 = %v, want %v", got1, tt.want1)
+			got := reverseKGroup(tt.head, tt.k)
+			// TODO: update the condition below to compare got with tt.want.
+			if true {
+				t.Errorf("reverseKGroup() = %v, want %v", got, tt.want)
 			}
 		})
 	}

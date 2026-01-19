@@ -26,13 +26,16 @@ struct ListNode {
 class Solution {
    public:
     ListNode *reverseKGroup(ListNode *head, int k) {
-        if (head == nullptr || head->next == nullptr || k < 2) return head;
+        if (head == nullptr || head->next == nullptr || k < 2) {
+            return head;
+        }
         ListNode *next_group = head;
         for (int i = 0; i < k; ++i) {
-            if (next_group)
+            if (next_group) {
                 next_group = next_group->next;
-            else
+            } else {
                 return head;
+            }
         }
         // next_group is the head of next group
         // new_next_group is the new head of next group after reversion

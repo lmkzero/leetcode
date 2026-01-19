@@ -1,35 +1,34 @@
 package main
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	hair := &ListNode{Next: head}
-	pre := hair
-
-	for head != nil {
+	dummy := &ListNode{Next: head}
+	pre := dummy
+	for pre != nil {
 		tail := pre
 		for i := 0; i < k; i++ {
 			tail = tail.Next
 			if tail == nil {
-				return hair.Next
+				return dummy.Next
 			}
 		}
+		node := pre.Next
 		next := tail.Next
-		head, tail = myReverse(head, tail)
-		pre.Next = head
-		tail.Next = next
-		pre = tail
-		head = tail.Next
+		tail.Next = nil
+		pre.Next = myReverse(node)
+		node.Next = next
+		pre = node
 	}
-	return hair.Next
+	return dummy.Next
 }
 
-func myReverse(head, tail *ListNode) (*ListNode, *ListNode) {
-	pre := tail.Next
-	p := head
-	for pre != tail {
-		next := p.Next
-		p.Next = pre
-		pre = p
-		p = next
+func myReverse(head *ListNode) *ListNode {
+	dummy := &ListNode{}
+	cur := head
+	for cur != nil {
+		next := cur.Next
+		cur.Next = dummy.Next
+		dummy.Next = cur
+		cur = next
 	}
-	return tail, head
+	return dummy.Next
 }
