@@ -4,9 +4,9 @@
  * [15] 三数之和
  */
 
-#include <iostream>
-#include <vector>
+#include <stdlib.h>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
