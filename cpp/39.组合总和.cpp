@@ -4,7 +4,7 @@
  * [39] 组合总和
  */
 
-#include <iostream>
+#include <stdlib.h>
 #include <vector>
 
 using namespace std;
