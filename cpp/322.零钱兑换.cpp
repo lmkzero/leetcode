@@ -4,7 +4,7 @@
  * [322] 零钱兑换
  */
 
-#include <iostream>
+#include <stdlib.h>
 #include <vector>
 
 using namespace std;
@@ -20,7 +20,7 @@ class Solution {
             for (int coin : coins) {
                 if (i - coin < 0) {
                     continue;
-                } 
+                }
                 dp[i] = min(dp[i], dp[i - coin] + 1);
             }
         }
