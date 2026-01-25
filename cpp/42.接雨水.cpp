@@ -4,34 +4,32 @@
  * [42] 接雨水
  */
 
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
-    // 对于每个柱子找到其左右最高的的柱子
-    // int trap(vector<int>& height){
-    //     const int n=height.size();
-    //     int *left_peak=new int[n]();
-    //     int *right_peak=new int[n]();
-    //     for(int i=1;i<n;i++){
-    //         left_peak[i]=max(left_peak[i-1],height[i-1]);
-    //     }
-    //     for(int i=n;i>=0;i--){
-    //         right_peak[i]=max(right_peak[i+1],height[i+1]);
-    //     }
-    //     int sum=0;
-    //     for(int i=0;i<n;i++){
-    //         int h=min(left_peak[i],right_peak[i]);
-    //         if(h>height[i]){
-    //             sum+=h-height[i];
-    //         }
-    //     }
-
-    //     delete[] left_peak;
-    //     delete[] right_peak;
-    //     return sum;
-    // }
-
     int trap(vector<int>& height) {
+        int ans = 0;
+        int left = 0, right = height.size() - 1;
+        int leftMax = 0, rightMax = 0;
+        while (left < right) {
+            leftMax = max(leftMax, height[left]);
+            rightMax = max(rightMax, height[right]);
+            if (height[left] < height[right]) {
+                ans += leftMax - height[left];
+                ++left;
+            } else {
+                ans += rightMax - height[right];
+                --right;
+            }
+        }
+        return ans;
+    }
+
+    int trapDP(vector<int>& height) {
         const int n = height.size();
         int peak_index = 0;  // 最高的柱子，将数组分为两半
         for (int i = 0; i < n; i++) {
