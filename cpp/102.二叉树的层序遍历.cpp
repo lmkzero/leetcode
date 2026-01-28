@@ -4,6 +4,13 @@
  * [102] 二叉树的层序遍历
  */
 
+#include <stdlib.h>
+#include <queue>
+#include <vector>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
