@@ -4,9 +4,9 @@
  * [5] 最长回文子串
  */
 
-#include <iostream>
+#include <stdlib.h>
 #include <algorithm>
-
+#include <string>
 
 using namespace std;
 

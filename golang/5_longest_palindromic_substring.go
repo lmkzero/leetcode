@@ -10,31 +10,34 @@ func longestPalindrome(s string) string {
 		maxLen = 1
 		begin  = 0
 	)
-	// init
+	// 初始化：长度为1的子串都是回文串
 	var dp [][]bool
 	for i := 0; i < n; i++ {
 		subDP := make([]bool, n)
 		subDP[i] = true
 		dp = append(dp, subDP)
 	}
-	for i := 2; i <= n; i++ {
-		for j := 0; j < n; j++ {
-			index := i + j - 1
-			if index >= n {
+	// 枚举子串长度len
+	for len := 2; len <= n; len++ {
+		// 枚举左边界left
+		for left := 0; left < n; left++ {
+			right := left + len - 1 // 右边界
+			if right >= n {
 				break
 			}
-			if s[j] != s[index] {
-				dp[j][index] = false
+			if s[left] != s[right] {
+				dp[left][right] = false
 			} else {
-				if index-j < 3 {
-					dp[j][index] = true
+				if right-left < 3 {
+					dp[left][right] = true
 				} else {
-					dp[j][index] = dp[j+1][index-1]
+					dp[left][right] = dp[left+1][right-1]
 				}
 			}
-			if dp[j][index] && index-j+1 > maxLen {
-				maxLen = index - j + 1
-				begin = j
+			// 记录最大长度
+			if dp[left][right] && right-left+1 > maxLen {
+				maxLen = right - left + 1
+				begin = left
 			}
 		}
 	}
