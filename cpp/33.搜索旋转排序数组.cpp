@@ -4,7 +4,7 @@
  * [33] 搜索旋转排序数组
  */
 
-#include <iostream>
+#include <stdlib.h>
 #include <vector>
 
 using namespace std;
