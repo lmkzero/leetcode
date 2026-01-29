@@ -4,7 +4,6 @@
  * [46] 全排列
  */
 
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -12,21 +11,34 @@ using namespace std;
 // @lc code=start
 class Solution {
    public:
-    void permute(vector<int> &nums, vector<vector<int>> &res, int start, int len) {
-        if (start == len) {
-            res.emplace_back(nums);
+    void dfs(vector<int> &nums, vector<bool> &used, vector<vector<int>> &res, vector<int> &path) {
+        // 处理递归的边界情况
+        if (path.size() == nums.size()) {
+            res.push_back(path);
             return;
         }
-        for (int i = start; i < len; i++) {
-            swap(nums[i], nums[start]);
-            permute(nums, res, start + 1, len);
-            swap(nums[i], nums[start]);
+        // 进行循环遍历
+        for (int i = 0; i < nums.size(); ++i) {
+            // 需要进行 used 修改并判断 continue，防止死循环
+            if (used[i] == true) continue;
+            used[i] = true;
+            path.push_back(nums[i]);
+            dfs(nums, used, res, path);
+            path.pop_back();
+            used[i] = false;
         }
     }
+
     vector<vector<int>> permute(vector<int> &nums) {
+        // 第一个数组用于存放结果数组
+        // 第二个数组用于存放是否遍历过的标识数组
         vector<vector<int>> res;
-        permute(nums, res, 0, nums.size());
+        vector<bool> used(nums.size(), false);
+        vector<int> path;
+        // 需要一个用于进行递归的函数,这个函数需要传递进行三个参数：used数组，res数组以及nums数组以及path数组
+        dfs(nums, used, res, path);
         return res;
+        // 最后返回结果即可
     }
 };
 // @lc code=end
