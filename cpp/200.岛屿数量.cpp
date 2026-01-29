@@ -4,6 +4,10 @@
  * [200] 岛屿数量
  */
 
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    private:
