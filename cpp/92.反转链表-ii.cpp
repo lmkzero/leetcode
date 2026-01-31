@@ -18,23 +18,21 @@
 
 class Solution {
    public:
-    ListNode *reverseBetween(ListNode *head, int m, int n) {
+    ListNode *reverseBetween(ListNode *head, int left, int right) {
         ListNode *dummy = new ListNode(-1);
         dummy->next = head;
-        ListNode *cur = dummy;
-        ListNode *pre, *front, *last;
-        for (int i = 1; i <= m - 1; ++i) cur = cur->next;
-        pre = cur;
-        last = cur->next;
-        for (int i = m; i <= n; ++i) {
-            cur = pre->next;
-            pre->next = cur->next;
-            cur->next = front;
-            front = cur;
+        ListNode *pre = dummy;
+        for (int i = 0; i < left - 1; i++) {
+            pre = pre->next;
         }
-        cur = pre->next;
-        pre->next = front;
-        last->next = cur;
+        ListNode *cur = pre->next;
+        ListNode *next;
+        for (int i = 0; i < right - left; i++) {
+            next = cur->next;
+            cur->next = next->next;
+            next->next = pre->next;
+            pre->next = next;
+        }
         return dummy->next;
     }
 };

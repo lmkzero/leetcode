@@ -2,27 +2,22 @@ package main
 
 // 1 <= left <= right <= n
 func reverseBetween(head *ListNode, left int, right int) *ListNode {
-	if left == 1 {
-		return reverseN(head, right)
-	}
-	head.Next = reverseBetween(head.Next, left-1, right-1)
-	return head
-}
-
-// 反转链表前 N 个节点
-var successor *ListNode // 后继节点
-
-// 反转以 head 为起点的 n 个节点，返回新的头结点
-func reverseN(head *ListNode, n int) *ListNode {
-	if n == 1 {
-		// 记录第 n + 1 个节点
-		successor = head.Next
+	if head.Next == nil || left == right {
 		return head
 	}
-	// 以 head.Next 为起点，需要反转前 n - 1 个节点
-	last := reverseN(head.Next, n-1)
-	head.Next.Next = head
-	// 让反转之后的 head 节点和后面的节点连起来
-	head.Next = successor
-	return last
+	dummy := &ListNode{0, head}
+	// 移动pre到left的前一个节点
+	pre := dummy
+	for i := 0; i < left-1; i++ {
+		pre = pre.Next
+	}
+	// 反转left到right区间的节点
+	cur := pre.Next
+	for i := 0; i < right-left; i++ {
+		next := cur.Next
+		cur.Next = next.Next
+		next.Next = pre.Next
+		pre.Next = next
+	}
+	return dummy.Next
 }
