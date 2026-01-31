@@ -4,7 +4,6 @@
  * [88] 合并两个有序数组
  */
 
-#include <iostream>
 #include <vector>
 
 using namespace std;
