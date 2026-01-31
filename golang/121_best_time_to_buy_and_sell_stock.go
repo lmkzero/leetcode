@@ -15,6 +15,9 @@ func maxProfitDP(prices []int) int {
 	return dp[n-1][0]
 }
 
+// maxProfit 计算给定股票价格数组中能获得的最大利润
+// 参数 prices 是股票每日价格数组
+// 返回值为能获得的最大利润，如果无法获利则返回0
 func maxProfit(prices []int) int {
 	if len(prices) <= 1 {
 		return 0

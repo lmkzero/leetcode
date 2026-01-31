@@ -12,13 +12,23 @@ using namespace std;
 class Solution {
    public:
     int maxProfit(vector<int> &prices) {
-        int maxPro = 0;
-        int minPrice = INT_MAX;
-        for (int i = 0; i < prices.size(); i++) {
-            minPrice = min(minPrice, prices[i]);
-            maxPro = max(maxPro, prices[i] - minPrice);
+        if (prices.size() <= 1) {
+            return 0;
         }
-        return maxPro;
+        int max = 0;
+        int slow = 0;
+        int fast = 0;
+        for (; fast < prices.size();) {
+            int cur = prices[fast] - prices[slow];
+            if (cur > max) {
+                max = cur;
+            }
+            if (cur < 0) {
+                slow = fast;
+            }
+            fast++;
+        }
+        return max;
     }
 };
 // @lc code=end
