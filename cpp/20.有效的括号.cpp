@@ -4,31 +4,33 @@
  * [20] 有效的括号
  */
 
-#include <iostream>
 #include <stack>
+#include <unordered_map>
 
 using namespace std;
 
 // @lc code=start
 class Solution {
+   private:
+    unordered_map<char, char> pairs = {{')', '('}, {']', '['}, {'}', '{'}};
+
    public:
     bool isValid(string s) {
-        string left = "([{";
-        string right = ")]}";
-        stack<char> stk;
-        for (auto c : s) {
-            // find函数在找不到指定值得情况下会返回string::npos
-            if (left.find(c) != string::npos) {
-                stk.push(c);
-            } else {
-                if (stk.empty() || stk.top() != left[right.find(c)]) {
-                    return false;
-                } else {
-                    stk.pop();
-                }
-            }
+        if (s.length() % 2 != 0) {
+            return false;
         }
-        return stk.empty();
+        stack<char> stack;
+        for (auto c : s) {
+            if (pairs.count(c) == 0) {
+                stack.push(c);
+                continue;
+            }
+            if (stack.empty() || stack.top() != pairs.at(c)) {
+                return false;
+            }
+            stack.pop();
+        }
+        return stack.empty();
     }
 };
 // @lc code=end
