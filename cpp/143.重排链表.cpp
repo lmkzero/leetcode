@@ -4,6 +4,8 @@
  * [143] 重排链表
  */
 
+#include "define.h"
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
