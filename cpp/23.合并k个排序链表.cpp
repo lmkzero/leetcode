@@ -4,15 +4,12 @@
  * [23] 合并K个排序链表
  */
 
-#include <iostream>
+#include <stdlib.h>
+#include <queue>
+#include <vector>
+#include "define.h"
 
 using namespace std;
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
 
 // @lc code=start
 /**
@@ -50,6 +47,28 @@ class Solution {
             }
         }
         return head.next;
+    }
+
+    ListNode *mergeKListsWithHeap(vector<ListNode *> &lists) {
+        auto cmp = [](ListNode *a, ListNode *b) { return a->val > b->val; };
+        priority_queue<ListNode *, vector<ListNode *>, decltype(cmp)> pq;
+        for (auto head : lists) {
+            if (head) {
+                pq.push(head);
+            }
+        }
+        ListNode *dummy = new ListNode();
+        ListNode *cur = dummy;
+        while (!pq.empty()) {
+            ListNode *node = pq.top();
+            pq.pop();
+            if (node->next) {
+                pq.push(node->next);
+            }
+            cur->next = node;
+            cur = cur->next;
+        }
+        return dummy->next;
     }
 };
 // @lc code=end

@@ -24,3 +24,23 @@ func Test_mergeKLists(t *testing.T) {
 		})
 	}
 }
+
+func Test_mergeKListsWithHeap(t *testing.T) {
+	type args struct {
+		lists []*ListNode
+	}
+	tests := []struct {
+		name string
+		args args
+		want *ListNode
+	}{
+		// TODO: Add test cases.
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := mergeKListsWithHeap(tt.args.lists); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("mergeKListsWithHeap() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
