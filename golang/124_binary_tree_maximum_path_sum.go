@@ -1,19 +1,31 @@
 package main
 
+import "math"
+
 func maxPathSum(root *TreeNode) int {
-	maxSum := 0
 	if root == nil {
-		return maxSum
+		return 0
 	}
+	maxSum := math.MinInt
 	var dfs func(node *TreeNode) int
 	dfs = func(node *TreeNode) int {
 		if node == nil {
 			return 0
 		}
-		left := max(dfs(node.Left), 0)
-		right := max(dfs(node.Right), 0)
-		maxSum = max(maxSum, left+right+node.Val)
-		return max(left, right) + node.Val
+		left := dfs(node.Left)
+		right := dfs(node.Right)
+		sum := node.Val
+		if left > 0 {
+			sum += left
+		}
+		if right > 0 {
+			sum += right
+		}
+		maxSum = max(maxSum, sum)
+		if max(left, right) > 0 {
+			return max(left, right) + node.Val
+		}
+		return node.Val
 	}
 	dfs(root)
 	return maxSum

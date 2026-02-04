@@ -15,7 +15,7 @@
  * };
  */
 
-#include <iostream>
+#include <algorithm>
 #include "define.h"
 
 using namespace std;
