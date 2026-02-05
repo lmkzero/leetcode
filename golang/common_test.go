@@ -64,6 +64,8 @@ func isIntSliceEqual(nums1, nums2 []int) bool {
 	if len(nums1) != len(nums2) {
 		return false
 	}
+	sort.Ints(nums1)
+	sort.Ints(nums2)
 	for i := 0; i < len(nums1); i++ {
 		if nums1[i] != nums2[i] {
 			return false
@@ -117,6 +119,8 @@ func isStringSliceEqual(ss1, ss2 []string) bool {
 	if len(ss1) != len(ss2) {
 		return false
 	}
+	sort.Strings(ss1)
+	sort.Strings(ss2)
 	for i := 0; i < len(ss1); i++ {
 		if ss1[i] != ss2[i] {
 			return false
