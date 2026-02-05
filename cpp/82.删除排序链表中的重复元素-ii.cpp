@@ -4,6 +4,9 @@
  * [82] 删除排序链表中的重复元素 II
  */
 
+#include <stdlib.h>
+#include "define.h"
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -16,22 +19,25 @@
 class Solution {
    public:
     ListNode* deleteDuplicates(ListNode* head) {
-        if (head == NULL || head->next == NULL) {
+        if (head == nullptr || head->next == nullptr) {
             return head;
         }
-        ListNode* p = head->next;
-        if (head->val == p->val) {
-            while (p && head->val == p->val) {
-                ListNode* tmp = p;
-                p = p->next;
-                delete tmp;
+        ListNode* dummy = new ListNode(0, head);
+        ListNode* p = dummy;
+        ListNode* cur = head;
+        while (cur != nullptr) {
+            while (cur->next != nullptr && cur->val == cur->next->val) {
+                cur = cur->next;
             }
-            delete head;
-            return deleteDuplicates(p);
-        } else {
-            head->next = deleteDuplicates(head->next);
-            return head;
+            if (p->next == cur) {
+                p = cur;
+                cur = cur->next;
+                continue;
+            }
+            p->next = cur->next;
+            cur = cur->next;
         }
+        return dummy->next;
     }
 };
 // @lc code=end
