@@ -4,6 +4,12 @@
  * [199] 二叉树的右视图
  */
 
+#include <queue>
+#include <vector>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -29,7 +35,6 @@ class Solution {
             for (int i = 0; i < counts; ++i) {
                 auto node = que.front();
                 que.pop();
-
                 if (node->left) {
                     que.push(node->left);
                 }
@@ -41,7 +46,6 @@ class Solution {
                 }
             }
         }
-
         return ans;
     }
 };
