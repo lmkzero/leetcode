@@ -4,7 +4,6 @@
  * [22] 括号生成
  */
 
-#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -13,21 +12,22 @@ using namespace std;
 class Solution {
    public:
     vector<string> generateParenthesis(int n) {
-        if (n == 0) return {};
-        if (n == 1) return {"()"};
-        vector<vector<string>> dp(n + 1);
-        dp[0] = {""};
-        dp[1] = {"()"};
-        for (int i = 2; i <= n; i++) {
-            for (int j = 0; j < i; j++) {
-                for (string p : dp[j])
-                    for (string q : dp[i - j - 1]) {
-                        string str = "(" + p + ")" + q;
-                        dp[i].push_back(str);
-                    }
-            }
+        dfs(n, 0, 0, "");
+        return ans;
+    }
+
+   private:
+    vector<string> ans;
+    void dfs(int n, int left, int right, string s) {
+        if (left > n || right > n || left < right) {
+            return;
         }
-        return dp[n];
+        if (left == n && right == n) {
+            ans.push_back(s);
+            return;
+        }
+        dfs(n, left + 1, right, s + "(");
+        dfs(n, left, right + 1, s + ")");
     }
 };
 // @lc code=end
