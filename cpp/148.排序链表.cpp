@@ -4,6 +4,10 @@
  * [148] 排序链表
  */
 
+#include <math.h>
+#include <climits>
+#include "define.h"
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
