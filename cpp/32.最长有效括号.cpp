@@ -4,7 +4,6 @@
  * [32] 最长有效括号
  */
 
-#include <iostream>
 #include <stack>
 
 using namespace std;
