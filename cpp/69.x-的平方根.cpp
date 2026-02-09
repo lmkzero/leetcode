@@ -8,29 +8,19 @@
 class Solution {
    public:
     int mySqrt(int x) {
-        // i*i溢出
-        /* int res=0;
-        for(int i=0;i<=x;i++){
-            if(i*i==x){
-                res=i;
-                break;
-            }else if(i*i<x&&(i+1)*(i+1)>x){
-                res=i;
-                break;
-            }
-        }
-        return res; */
-        if (x == 1) return 1;
         int min = 0;
         int max = x;
-        while (max - min > 1) {
+        int ans = -1;
+        while (min <= max) {
             int m = (max + min) / 2;
-            if (x / m < m)
-                max = m;
-            else
-                min = m;
+            if ((long long)m * m <= x) {
+                ans = m;
+                min = m + 1;
+                continue;
+            }
+            max = m - 1;
         }
-        return min;
+        return ans;
     }
 };
 // @lc code=end
