@@ -3,16 +3,18 @@ package main
 import "math"
 
 func myAtoi(s string) int {
-	if len(s) == 0 {
-		return 0
-	}
 	var (
 		i        = 0
+		n        = len(s)
 		negative = false
 		res      = 0
 	)
+	if n == 0 {
+		return 0
+	}
 	// 去除前部字符
-	for ; i < len(s) && s[i] == ' '; i++ {
+	for i < n && s[i] == ' ' {
+		i++
 	}
 	if i >= len(s) {
 		return 0
@@ -24,10 +26,11 @@ func myAtoi(s string) int {
 	case '-':
 		i++
 		negative = true
+	default:
 	}
 	// 确定数字
 	for ; i < len(s); i++ {
-		if s[i] < 48 || s[i] > 57 {
+		if s[i] < '0' || s[i] > '9' {
 			break
 		}
 		res = res*10 + int(s[i]-'0')
