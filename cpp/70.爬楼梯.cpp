@@ -4,6 +4,10 @@
  * [70] 爬楼梯
  */
 
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
