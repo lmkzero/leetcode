@@ -4,6 +4,11 @@
  * [43] 字符串相乘
  */
 
+#include <string>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
