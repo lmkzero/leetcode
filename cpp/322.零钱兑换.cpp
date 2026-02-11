@@ -28,59 +28,6 @@ class Solution {
             return -1;
         }
         return dp[amount];
-        // vector<int> memo(amount+1,0);
-        // return dp(coins,amount,memo);
     }
-
-    // 依然超时
-    // int dp(vector<int> &coins, int amount,vector<int> &memo){
-    //     if(amount==0){
-    //         return 0;
-    //     }
-    //     if(amount<0){
-    //         return -1;
-    //     }
-    //     if(memo[amount]!=0){
-    //         return memo[amount];
-    //     }
-    //     int res=INT_MAX;
-    //     for(int coin:coins){
-    //         int sub=dp(coins,amount-coin,memo);
-    //         if(sub==-1){
-    //             continue;
-    //         }
-    //         res=min(res,sub+1);
-    //     }
-    //     if(res!=INT_MAX){
-    //         memo[amount]=res;
-    //         return res;
-    //     }else{
-    //         return -1;
-    //     }
-    // }
-
-    // 暴力递归
-    // 超时
-    // int dp(vector<int> &coins,int amount){
-    //     if(amount==0){
-    //         return 0;
-    //     }
-    //     if(amount<0){
-    //         return -1;
-    //     }
-    //     int res=INT_MAX;
-    //     for(int coin:coins){
-    //         int sub=dp(coins,amount-coin);
-    //         if(sub==-1){
-    //             continue;
-    //         }
-    //         res=min(res,sub+1);
-    //     }
-    //     if(res!=INT_MAX){
-    //         return res;
-    //     }else{
-    //         return -1;
-    //     }
-    // }
 };
 // @lc code=end
