@@ -4,6 +4,11 @@
  * [105] 从前序与中序遍历序列构造二叉树
  */
 
+#include <vector>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
