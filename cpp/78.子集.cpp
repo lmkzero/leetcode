@@ -4,18 +4,17 @@
  * [78] 子集
  */
 
-#include <iostream>
 #include <vector>
 
 using namespace std;
 
 // @lc code=start
 class Solution {
-private:
+   private:
     vector<vector<int>> res;
     vector<int> subset;
 
-public:
+   public:
     vector<vector<int>> subsets(vector<int>& nums) {
         dfs(nums, 0);
         return res;
@@ -25,10 +24,9 @@ public:
         res.push_back(subset);
         for (int i = n; i < nums.size(); i++) {
             subset.push_back(nums[i]);
-            dfs(nums, i+1);
+            dfs(nums, i + 1);
             subset.pop_back();
         }
     }
 };
 // @lc code=end
-
