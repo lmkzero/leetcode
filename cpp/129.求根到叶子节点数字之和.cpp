@@ -4,6 +4,8 @@
  * [129] 求根到叶子节点数字之和
  */
 
+#include "define.h"
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -23,10 +25,11 @@ class Solution {
         if (root == nullptr) {
             return 0;
         }
+        sum = sum * 10 + root->val;
         if (root->left == nullptr && root->right == nullptr) {
-            return sum * 10 + root->val;
+            return sum;
         }
-        return dfs(root->left, sum * 10 + root->val) + dfs(root->right, sum * 10 + root->val);
+        return dfs(root->left, sum) + dfs(root->right, sum);
     }
 };
 // @lc code=end
