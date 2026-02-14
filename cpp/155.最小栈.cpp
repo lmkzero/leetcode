@@ -4,6 +4,10 @@
  * [155] 最小栈
  */
 
+#include <stack>
+
+using namespace std;
+
 // @lc code=start
 class MinStack {
    private:
