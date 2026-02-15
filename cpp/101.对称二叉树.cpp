@@ -4,6 +4,8 @@
  * [101] 对称二叉树
  */
 
+#include "define.h"
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -26,10 +28,10 @@ class Solution {
         if (p == nullptr && q == nullptr) {
             return true;
         }
-        if (p == nullptr || q == nullptr) {
+        if (p == nullptr || q == nullptr || p->val != q->val) {
             return false;
         }
-        return p->val == q->val && isSymmetric(p->left, q->right) && isSymmetric(p->right, q->left);
+        return isSymmetric(p->left, q->right) && isSymmetric(p->right, q->left);
     }
 };
 // @lc code=end
