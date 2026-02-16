@@ -22,6 +22,9 @@ class Solution {
             res.push_back(path);
             return;
         }
+        if (target < candidates[start]) {
+            return;
+        }
         for (int i = start; i < candidates.size() && target - candidates[i] >= 0; i++) {
             path.push_back(candidates[i]);
             DFS(i, target - candidates[i]);
@@ -33,7 +36,6 @@ class Solution {
         std::sort(candidates.begin(), candidates.end());
         this->candidates = candidates;
         DFS(0, target);
-
         return res;
     }
 };

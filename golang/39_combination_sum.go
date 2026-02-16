@@ -1,25 +1,28 @@
 package main
 
+import (
+	"slices"
+	"sort"
+)
+
 func combinationSum(candidates []int, target int) [][]int {
 	var (
 		comb []int
 		ans  [][]int
 	)
+	sort.Ints(candidates)
 	var dfs func(target, idx int)
 	dfs = func(target, idx int) {
-		if idx == len(candidates) {
-			return
-		}
 		if target == 0 {
-			ans = append(ans, append([]int(nil), comb...))
+			ans = append(ans, slices.Clone(comb))
 			return
 		}
-		// 直接跳过
-		dfs(target, idx+1)
-		// 选择当前数
-		if target-candidates[idx] >= 0 {
-			comb = append(comb, candidates[idx])
-			dfs(target-candidates[idx], idx)
+		if target < candidates[idx] {
+			return
+		}
+		for j := idx; j < len(candidates); j++ {
+			comb = append(comb, candidates[j])
+			dfs(target-candidates[j], j)
 			comb = comb[:len(comb)-1]
 		}
 	}
