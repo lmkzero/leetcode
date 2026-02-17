@@ -4,6 +4,11 @@
  * [128] 最长连续序列
  */
 
+#include <unordered_set>
+#include <vector>
+
+using namespace std;
+
 // @lc code=start
 class Solution {
    public:
