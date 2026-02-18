@@ -4,6 +4,11 @@
  * [110] 平衡二叉树
  */
 
+#include <algorithm>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
