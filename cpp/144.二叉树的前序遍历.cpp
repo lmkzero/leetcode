@@ -4,6 +4,12 @@
  * [144] 二叉树的前序遍历
  */
 
+#include <stack>
+#include <vector>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
