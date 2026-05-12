@@ -4,7 +4,10 @@
  * [143] 重排链表
  */
 
+#include <vector>
 #include "define.h"
+
+using namespace std;
 
 // @lc code=start
 /**
@@ -19,6 +22,29 @@
  */
 class Solution {
    public:
+    void reorderListByIdx(ListNode* head) {
+        if (head == nullptr) {
+            return;
+        }
+        vector<ListNode*> vec;
+        ListNode* node = head;
+        while (node != nullptr) {
+            vec.emplace_back(node);
+            node = node->next;
+        }
+        int i = 0, j = vec.size() - 1;
+        while (i < j) {
+            vec[i]->next = vec[j];
+            i++;
+            if (i == j) {
+                break;
+            }
+            vec[j]->next = vec[i];
+            j--;
+        }
+        vec[i]->next = nullptr;
+    }
+
     void reorderList(ListNode* head) {
         if (head == nullptr || head->next == nullptr) {
             return;
