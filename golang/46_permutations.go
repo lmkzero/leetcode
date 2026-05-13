@@ -10,10 +10,10 @@ func permute(nums []int) [][]int {
 			ans = append(ans, append([]int{}, path...))
 			return
 		}
-		for j, u := range used {
-			if !u {
-				path[i] = nums[j]
+		for j, num := range nums {
+			if !used[j] {
 				used[j] = true
+				path[i] = num
 				dfs(i + 1)
 				used[j] = false
 			}
