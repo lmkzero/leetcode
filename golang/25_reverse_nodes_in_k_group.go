@@ -14,21 +14,9 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 		node := pre.Next
 		next := tail.Next
 		tail.Next = nil
-		pre.Next = myReverse(node)
+		pre.Next = reverseList(node)
 		node.Next = next
 		pre = node
-	}
-	return dummy.Next
-}
-
-func myReverse(head *ListNode) *ListNode {
-	dummy := &ListNode{}
-	cur := head
-	for cur != nil {
-		next := cur.Next
-		cur.Next = dummy.Next
-		dummy.Next = cur
-		cur = next
 	}
 	return dummy.Next
 }
