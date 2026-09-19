@@ -4,7 +4,6 @@
  * [148] 排序链表
  */
 
-#include <math.h>
 #include <climits>
 #include "define.h"
 
@@ -14,25 +13,25 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
  * };
  */
 class Solution {
    public:
     ListNode *sortList(ListNode *head) {
         // 归并排序
-        if (head == NULL || head->next == NULL) {
+        if (head == nullptr || head->next == nullptr) {
             return head;
         }
         ListNode *fast = head;
         ListNode *slow = head;
-        while (fast->next != NULL && fast->next->next != NULL) {
+        while (fast->next != nullptr && fast->next->next != nullptr) {
             fast = fast->next->next;
             slow = slow->next;
         }
         fast = slow;
         slow = slow->next;
-        fast->next = NULL;
+        fast->next = nullptr;
         ListNode *l1 = sortList(head);
         ListNode *l2 = sortList(slow);
         return mergeTwoLists(l1, l2);
