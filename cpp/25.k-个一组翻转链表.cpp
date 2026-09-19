@@ -4,15 +4,7 @@
  * [25] K 个一组翻转链表
  */
 
-#include <iostream>
-
-using namespace std;
-
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
+#include "define.h"
 
 // @lc code=start
 /**
@@ -20,7 +12,7 @@ struct ListNode {
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
  * };
  */
 class Solution {
@@ -40,7 +32,7 @@ class Solution {
         // next_group is the head of next group
         // new_next_group is the new head of next group after reversion
         ListNode *new_next_group = reverseKGroup(next_group, k);
-        ListNode *prev = NULL, *cur = head;
+        ListNode *prev = nullptr, *cur = head;
         while (cur != next_group) {
             ListNode *next = cur->next;
             cur->next = prev ? prev : new_next_group;
