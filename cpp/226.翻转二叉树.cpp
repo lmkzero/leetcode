@@ -4,6 +4,12 @@
  * [226] 翻转二叉树
  */
 
+#include <algorithm>
+#include <stack>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
@@ -26,17 +32,18 @@ class Solution {
         return root;
     }
 
-    // 迭代法
-    // TreeNode* invertTree(TreeNode* root) {
-    // if (root == NULL) return root;
-    // stack<TreeNode*> st;
-    // st.push(root);
-    // while(!st.empty()) {
-    //     TreeNode* node = st.top();
-    //     st.pop();
-    //     swap(node->left, node->right);
-    //     if(node->left) st.push(node->left);
-    //     if(node->right) st.push(node->right);
-    // }
+    TreeNode* invertTree2(TreeNode* root) {
+        if (root == NULL) return root;
+        stack<TreeNode*> st;
+        st.push(root);
+        while (!st.empty()) {
+            TreeNode* node = st.top();
+            st.pop();
+            swap(node->left, node->right);
+            if (node->left) st.push(node->left);
+            if (node->right) st.push(node->right);
+        }
+        return root;
+    }
 };
 // @lc code=end
