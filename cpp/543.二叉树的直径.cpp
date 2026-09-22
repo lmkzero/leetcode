@@ -18,13 +18,12 @@
  */
 
 #include <algorithm>
-#include <iostream>
 #include "define.h"
 
 using namespace std;
 
 class Solution {
-public:
+   public:
     int diameterOfBinaryTree(TreeNode* root) {
         maxDiameter = 0;
         if (root == nullptr) {
@@ -33,17 +32,17 @@ public:
         dfs(root);
         return maxDiameter;
     }
-    int dfs(TreeNode *root) {
+    int dfs(TreeNode* root) {
         if (root == nullptr) {
             return 0;
         }
         int left = dfs(root->left);
         int right = dfs(root->right);
-        maxDiameter = max(maxDiameter, left+right);
-        return max(left,right)+1;
+        maxDiameter = max(maxDiameter, left + right);
+        return max(left, right) + 1;
     }
-private:
+
+   private:
     int maxDiameter;
 };
 // @lc code=end
-
