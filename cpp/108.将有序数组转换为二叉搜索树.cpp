@@ -4,6 +4,11 @@
  * [108] 将有序数组转换为二叉搜索树
  */
 
+#include <vector>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
