@@ -4,6 +4,7 @@
  * [230] 二叉搜索树中第K小的元素
  */
 
+#include "define.h"
 // @lc code=start
 /**
  * Definition for a binary tree node.
