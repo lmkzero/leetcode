@@ -4,6 +4,11 @@
  * [114] 二叉树展开为链表
  */
 
+#include <stack>
+#include "define.h"
+
+using namespace std;
+
 // @lc code=start
 /**
  * Definition for a binary tree node.
